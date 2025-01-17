@@ -40,14 +40,14 @@ const upcomingEvents: Array<UpcomingEvent> = [
   <main class="relative flex size-full flex-col bg-white">
     <!-- HEADER -->
     <div class="z-10 flex h-28 shrink-0 items-center justify-between p-7 sm:px-14">
-      <a href="/" class="font-orpheus z-10 text-lg font-light tracking-wide text-white md:text-3xl">Upheld Ministries</a
+      <a href="/" class="z-10 font-orpheus text-lg font-light tracking-wide text-white md:text-3xl">Upheld Ministries</a
       >
       <nav class="hidden items-center gap-x-3 text-xl text-white md:flex" transition:name="navbar">
         <!-- TODO: this becomes a dropdown with two options -->
         <div class="group relative">
           <button>About</button>
           <div
-            class="bg-brand-dark-grey absolute top-8 hidden flex-col gap-2 whitespace-nowrap px-3 py-4 group-hover:flex"
+            class="absolute top-8 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 group-hover:flex"
           >
             <a href="/our-story-and-vision">Our Story &amp; Vision</a>
             <a href="/our-leadership">Our Leadership</a>
@@ -58,7 +58,7 @@ const upcomingEvents: Array<UpcomingEvent> = [
         <a href="/events">Events</a>
       </nav>
 
-      <a href="/donate" class="bg-brand-orange hidden rounded-md px-7 py-4 font-serif md:block">Donate</a>
+      <a href="/donate" class="hidden rounded-md bg-brand-orange px-7 py-4 font-serif md:block">Donate</a>
     </div>
 
     <Hero />
@@ -76,7 +76,7 @@ const upcomingEvents: Array<UpcomingEvent> = [
       <div class="flex flex-col items-center justify-evenly gap-10 px-6 py-24 lg:flex-row">
         <div class="flex flex-col items-center gap-y-10 lg:items-start">
           <h2 class="font-orpheus text-5xl font-bold">Upcoming Events</h2>
-          <a href="/donate" class="bg-brand-dark-grey block px-7 py-4 font-serif text-white">View All</a>
+          <a href="/donate" class="block bg-brand-dark-grey px-7 py-4 font-serif text-white">View All</a>
         </div>
 
         <ul class="flex flex-wrap justify-center gap-10">
@@ -91,7 +91,7 @@ const upcomingEvents: Array<UpcomingEvent> = [
       </div>
     </section>
 
-    <Quotes client:visible />
+    <Quotes />
   </main>
 </Layout>
 
