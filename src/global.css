@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Orpheus";
+    src: url("/fonts/Orpheus.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Orpheus Pro";
+    src: url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.eot");
+    src:
+      url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.eot?#iefix") format("embedded-opentype"),
+      url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.woff2") format("woff2"),
+      url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.woff") format("woff"),
+      url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.ttf") format("truetype"),
+      url("https://db.onlinewebfonts.com/t/2aea0ac500c896188f9ad191c231029c.svg#Orpheus Pro") format("svg");
+    font-weight: 300;
+  }
+
+  p {
+    @apply font-serif text-lg;
+  }
+}

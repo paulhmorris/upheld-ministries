@@ -1,22 +1,36 @@
+---
+import "@fontsource-variable/eb-garamond";
+import { ClientRouter } from "astro:transitions";
+import "../global.css";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+
+    <meta property="og:site_name" content="Upheld Ministries" />
+    <meta property="og:title" content="Upheld Ministries" />
+    <meta property="og:url" content="https://www.upheldministries.org" />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+      href="https://images.squarespace-cdn.com/content/v1/662c031f0438617c740310de/2de1912d-d2b3-43bc-b8b4-64a740c56378/favicon.ico?format=100w"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+      href="https://images.squarespace-cdn.com/content/v1/662c031f0438617c740310de/be502002-e12e-4426-95a1-806f448c7d39/favicon.ico?format=100w"
+    />
+    <title>Upheld Ministries</title>
+    <ClientRouter />
   </head>
-  <body>
+  <body class="text-brand-dark-grey h-full min-h-full w-full font-serif">
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
