@@ -8,7 +8,7 @@ export default {
     colors: {
       white: colors.white,
       black: colors.black,
-      gray: colors.gray,
+      // gray: colors.gray,
       transparent: colors.transparent,
       current: colors.current,
       brand: {

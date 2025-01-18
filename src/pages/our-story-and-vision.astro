@@ -1,10 +1,96 @@
 ---
+import { Image } from "astro:assets";
+import ourStory from "../assets/images/our-story.jpg";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout headerBgColor="bg-brand-dark-grey">
   <!-- HERO -->
-  <div class="grid place-items-center">
-    <h1 class="font-orpheus text-[40px] text-white sm:text-6xl md:text-8xl">Encourage. Rest. Connect. Support.</h1>
+  <div class="grid place-items-center bg-brand-dark-grey px-6 pb-16 pt-0 md:py-32">
+    <h1 class="max-w-screen-md text-balance text-center font-orpheus text-[40px] text-white sm:text-4xl md:text-6xl">
+      Encourage. Rest. Connect. Support.
+    </h1>
+  </div>
+
+  <div class="mt-16 px-6 pb-20 md:mt-24">
+    <section class="mx-auto max-w-screen-md space-y-12 md:space-y-48">
+      <!-- Our Story -->
+      <div class="grid grid-cols-1 gap-x-16 gap-y-4 md:grid-cols-3">
+        <div class="col-span-1">
+          <h2 class="font-orpheus text-4xl font-light">Our Story</h2>
+          <Image
+            src={ourStory}
+            alt="Lily Grace smiling brightly in her car seat."
+            class="mx-auto mt-4 max-w-48 rounded object-contain md:mt-[33%]"
+          />
+        </div>
+        <div class="col-span-2 space-y-4 text-xl">
+          <p class="font-bold">A message from the Founder</p>
+          <p>
+            In 2017, my youngest daughter, Lily Grace, had a nonfatal drowning accident that left her with a severe
+            brain injury. In an instant, our lives were forever changed. For four and a half years, we prayed constantly
+            and sought all kinds of different treatments to help heal her brain. We traveled across the country and
+            around the world to see specialists and receive therapies in hopes that her brain would be fully restored.
+          </p>
+          <p>
+            During these treatments, I met and formed relationships with many moms who were also caring for their own
+            medically complex child. Our conversations centered around how our kids were doing and what new treatments
+            were available. While these things were great to talk about, my ultimate desire was to point them to the
+            Lord - our Refuge and Strength, our Comfort and our Healer. Knowing that therapies and treatments are
+            finite, we rejoiced that our ultimate hope is in the Lord.
+          </p>
+          <p>
+            In 2022, the Lord saw fit to heal Lily completely, by calling her home to Him in Heaven. Lily’s story
+            touched thousands while she was living. The Lord continues to use her story for His glory in ministering to
+            the medically complex community and pointing them to the true hope in hurting.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Vision -->
+      <div class="grid grid-cols-1 gap-x-16 gap-y-4 md:grid-cols-3">
+        <div class="col-span-1">
+          <h2 class="font-orpheus text-4xl font-light">Our Vision</h2>
+        </div>
+
+        <div class="col-span-2 space-y-4 text-xl">
+          <p>
+            Upheld Ministries is modeled after a story in Exodus 17. In this story, Moses is standing on a hill watching
+            the people of God fight in a battle. Every time Moses held up his hands, Israel prevailed, but when his arms
+            fell, so did the Israelites. After a while, Moses’ arms grew tired and weary, so Aaron and Hur came beside
+            him, sat him on a rock and held up his hands for him. Upheld Ministries was born out of this picture.
+          </p>
+          <p>
+            We are an Aaron and Hur community. A community that comes alongside you. We want to help “ hold up your
+            hands.” Our desire is to pour into you so that you can serve your family well. We are here to encourage you
+            with Biblical truth. We want to help you connect with other medical mommas. We want to give you a place to
+            rest and be refreshed. We are here to support you in your daily journey of caring for your child.
+          </p>
+        </div>
+      </div>
+
+      <!-- Join Us -->
+      <div class="grid grid-cols-1 gap-x-16 gap-y-4 md:grid-cols-3">
+        <div class="col-span-1">
+          <h2 class="font-orpheus text-4xl font-light">Join Us</h2>
+        </div>
+
+        <div class="col-span-2 space-y-4 text-xl">
+          <p>
+            We believe that together, we are stronger. If you are a parent or caregiver of a medically complex child, we
+            invite you to join our community. Here, you'll find a network of people who understand what you're going
+            through and are ready to support you. We also welcome volunteers and donors who share our vision and want to
+            support families caring for medically complex children.
+          </p>
+          <p>Thank you for being part of our journey. Together, we can make a difference.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
+
+<style>
+  p {
+    font-size: 19px;
+  }
+</style>
