@@ -1,11 +1,13 @@
 ---
 import "@fontsource-variable/eb-garamond";
 import { ClientRouter } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import "../global.css";
 ---
 
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +32,11 @@ import "../global.css";
     <title>Upheld Ministries</title>
     <ClientRouter />
   </head>
-  <body class="text-brand-dark-grey h-full min-h-full w-full font-serif">
-    <slot />
+  <body class="flex h-full min-h-full flex-col font-serif text-brand-dark-grey">
+    <Header invertTextColor={["/our-leadership", "/", "/connect", "/events"].includes(Astro.url.pathname)} />
+    <main class="h-full grow">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

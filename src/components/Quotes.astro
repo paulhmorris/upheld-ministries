@@ -15,34 +15,37 @@ const quotes = [
 ];
 
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+import ContentWrapper from "./ContentWrapper.astro";
 setBasePath("/shoelace-assets/");
 ---
 
-<section class="h-full bg-brand-dark-teal px-6 py-10 text-brand-orange md:px-10">
-  <sl-carousel navigation mouse-dragging loop class="h-full" style="--aspect-ratio: unset;">
-    <div
-      slot="next-icon"
-      class="grid aspect-square size-[60px] place-items-center rounded-full bg-brand-orange p-3 opacity-70"
-    >
-      <sl-icon name="arrow-right" class="size-8 text-brand-dark-grey"></sl-icon>
-    </div>
-    <div
-      slot="previous-icon"
-      class="grid aspect-square size-[60px] place-items-center rounded-full bg-brand-orange p-3 opacity-70"
-    >
-      <sl-icon name="arrow-left" class="size-8 text-brand-dark-grey"></sl-icon>
-    </div>
-    {
-      quotes.map((quote) => (
-        <sl-carousel-item class="px-16">
-          <div class="flex flex-col items-center gap-y-4">
-            <p class="font-orpheus text-2xl text-brand-orange md:text-4xl md:leading-normal">{quote.body}</p>
-            <p class="font-serif text-[22px] leading-[36px] text-white">{quote.author}</p>
-          </div>
-        </sl-carousel-item>
-      ))
-    }
-  </sl-carousel>
+<section class="bg-brand-dark-teal px-6 pb-20 pt-10 text-brand-orange md:px-10">
+  <ContentWrapper>
+    <sl-carousel navigation mouse-dragging loop class="h-full" style="--aspect-ratio: unset;">
+      <div
+        slot="next-icon"
+        class="grid aspect-square size-[60px] place-items-center rounded-full bg-brand-orange p-3 opacity-70"
+      >
+        <sl-icon name="arrow-right" class="size-8 text-brand-dark-grey"></sl-icon>
+      </div>
+      <div
+        slot="previous-icon"
+        class="grid aspect-square size-[60px] place-items-center rounded-full bg-brand-orange p-3 opacity-70"
+      >
+        <sl-icon name="arrow-left" class="size-8 text-brand-dark-grey"></sl-icon>
+      </div>
+      {
+        quotes.map((quote) => (
+          <sl-carousel-item class="px-16">
+            <div class="flex flex-col items-center gap-y-4">
+              <p class="font-orpheus text-2xl text-brand-orange md:text-4xl md:leading-normal">{quote.body}</p>
+              <p class="font-serif text-[22px] leading-[36px] text-white">{quote.author}</p>
+            </div>
+          </sl-carousel-item>
+        ))
+      }
+    </sl-carousel>
+  </ContentWrapper>
 </section>
 
 <script>
