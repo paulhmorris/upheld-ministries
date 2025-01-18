@@ -9,6 +9,8 @@ export default {
       white: colors.white,
       black: colors.black,
       gray: colors.gray,
+      transparent: colors.transparent,
+      current: colors.current,
       brand: {
         "dark-grey": "#313D41",
         "dark-teal": "#476c77",

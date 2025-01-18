@@ -1,19 +1,22 @@
 ---
 type Props = {
   invertTextColor: boolean;
+  bgColor: "bg-transparent" | "bg-brand-dark-grey";
 };
-const { invertTextColor } = Astro.props;
+const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
 ---
 
 <header
-  class={`z-10 flex h-28 shrink-0 items-center justify-between p-7 sm:px-14 ${invertTextColor ? "text-white" : "text-brand-dark-grey"}`}
+  class={`z-10 flex h-28 shrink-0 items-center justify-between p-7 sm:px-14 ${invertTextColor ? "text-brand-dark-grey" : "text-white"} ${bgColor}`}
 >
   <a href="/" class="z-10 font-orpheus text-lg font-light tracking-wide md:text-3xl">Upheld Ministries</a>
-  <nav class="z-10 hidden items-center gap-x-3 text-xl text-white md:flex" transition:name="navbar">
+  <nav class="text-current z-10 hidden items-center gap-x-3 text-xl md:flex" transition:name="navbar">
     <!-- TODO: this becomes a dropdown with two options -->
-    <div class="group relative">
+    <div class="group relative -m-2 p-2">
       <a href="/about">About</a>
-      <div class="absolute top-8 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 group-hover:flex">
+      <div
+        class="absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 group-hover:flex"
+      >
         <a href="/our-story-and-vision">Our Story &amp; Vision</a>
         <a href="/our-leadership">Our Leadership</a>
       </div>
@@ -25,7 +28,7 @@ const { invertTextColor } = Astro.props;
 
   <a
     href="/donate"
-    class={`z-10 hidden rounded-md px-7 py-4 font-serif md:block ${invertTextColor ? "bg-brand-orange text-brand-dark-grey" : "bg-brand-dark-grey text-white"}`}
+    class={`z-10 hidden rounded-md px-7 py-4 font-serif md:block ${invertTextColor ? "bg-brand-dark-grey text-white" : "bg-brand-orange text-brand-dark-grey"}`}
     >Donate</a
   >
 </header>

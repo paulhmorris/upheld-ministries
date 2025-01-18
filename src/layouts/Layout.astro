@@ -4,6 +4,11 @@ import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../global.css";
+
+type Props = {
+  headerBgColor: "bg-transparent" | "bg-brand-dark-grey";
+};
+const { headerBgColor = "bg-transparent" } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,8 +37,11 @@ import "../global.css";
     <title>Upheld Ministries</title>
     <ClientRouter />
   </head>
-  <body class="flex h-full min-h-full flex-col font-serif text-brand-dark-grey">
-    <Header invertTextColor={["/our-leadership", "/", "/connect", "/events"].includes(Astro.url.pathname)} />
+  <body class="flex h-full min-h-screen flex-col font-serif text-brand-dark-grey">
+    <Header
+      bgColor={headerBgColor}
+      invertTextColor={["/our-leadership", "/connect", "/events"].includes(Astro.url.pathname)}
+    />
     <main class="h-full grow">
       <slot />
     </main>
