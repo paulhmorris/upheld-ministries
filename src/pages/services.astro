@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import services1 from "../assets/images/services1.jpg";
+import services2 from "../assets/images/services2.jpg";
+import services3 from "../assets/images/services3.jpg";
+import services4 from "../assets/images/services4.jpg";
+import ContentWrapper from "../components/ContentWrapper.astro";
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    img: services1,
+    title: "Encourage",
+    description:
+      "At Upheld Ministries, our desire is to encourage you with Biblical truth. Everything we do is with the intention of loving you, just as Christ loves us, and pointing you to the hope and refuge found in the Gospel.",
+  },
+  {
+    img: services2,
+    title: "Rest",
+    description:
+      "Caring for a medically complex child is a full-time job. Spend a weekend with us getting your cup filled, so that you can go home refreshed, ready to serve your family. Our Gather Retreat is designed to give you a place to rest and be restored.",
+    link: {
+      text: "Learn More",
+      href: "/events",
+    },
+  },
+  {
+    img: services3,
+    title: "Connect",
+    description:
+      "Having a medically complex child can be isolating. Your daily life is different than other parents around you. We get it! We understand! Join us and connect with a community of other parents of medically complex kids.",
+  },
+  {
+    img: services4,
+    title: "Support",
+    description:
+      "It is hard work caring for a medically complex child. You are not only a parent, but a therapist, nutritionist, caregiver, researcher, and advocate. We are here to walk beside you and hold up your hands. We want to support you in your daily journey of caring for your child.",
+    link: {
+      text: "Contact us!",
+      href: "/connect",
+    },
+  },
+];
+---
+
+<Layout headerBgColor="bg-brand-dark-grey">
+  <!-- HERO -->
+  <div class="br-curve grid place-items-center bg-brand-dark-grey px-6 pb-16 pt-0 md:py-32">
+    <h1 class="max-w-screen-md text-balance text-center font-orpheus text-[40px] text-white sm:text-6xl">
+      Encourage. Rest. Connect. Support.
+    </h1>
+  </div>
+
+  <ContentWrapper>
+    <ul class="mx-auto mt-16 grid grid-cols-1 items-start gap-16 px-6 pb-20 md:mt-24 md:grid-cols-2">
+      {
+        services.map((s) => (
+          <li class="mx-auto flex w-full max-w-[550px] flex-col items-center justify-center gap-y-4">
+            <Image src={s.img} alt={s.title} class="h-[380px] w-full rounded-sm object-cover object-center" />
+            <h2 class="font-orpheus text-4xl font-bold">{s.title}</h2>
+            <p class="text-center">{s.description}</p>
+            {s.link && (
+              <a
+                href={s.link.href}
+                class="block rounded-md bg-brand-dark-grey px-12 py-4 font-serif text-lg text-white"
+              >
+                {s.link.text}
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </ContentWrapper>
+</Layout>
+
+<style>
+  .br-curve {
+    clip-path: ellipse(175% 100% at 0% -3%);
+  }
+</style>
