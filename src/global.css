@@ -26,4 +26,29 @@
   p {
     @apply font-serif text-lg;
   }
+
+  label {
+    @apply select-none font-serif text-xl;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    @apply h-[54px];
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    @apply w-full rounded-none border border-[#A9A9A9] bg-[#FAFAFA] px-4 py-2;
+  }
+
+  label:has(input[type="checkbox"]) {
+    @apply flex items-center gap-x-2;
+  }
+
+  input[type="checkbox"] {
+    @apply size-4 rounded-none border border-[#A9A9A9] bg-[#FAFAFA] text-brand-dark-grey;
+  }
 }

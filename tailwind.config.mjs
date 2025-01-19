@@ -11,6 +11,8 @@ export default {
       // gray: colors.gray,
       transparent: colors.transparent,
       current: colors.current,
+      success: "#28a745",
+      danger: "#dc3545",
       brand: {
         "dark-grey": "#313D41",
         "dark-teal": "#476c77",
