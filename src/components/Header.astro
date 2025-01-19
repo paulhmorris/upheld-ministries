@@ -10,12 +10,11 @@ const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
   class={`z-10 flex h-28 shrink-0 items-center justify-between p-7 sm:px-14 ${invertTextColor ? "text-brand-dark-grey" : "text-white"} ${bgColor}`}
 >
   <a href="/" class="z-10 font-orpheus text-lg font-light tracking-wide md:text-3xl">Upheld Ministries</a>
-  <nav class="text-current z-10 hidden items-center gap-x-3 text-xl md:flex" transition:name="navbar">
-    <!-- TODO: this becomes a dropdown with two options -->
+  <nav class="z-10 hidden items-center gap-x-3 text-xl text-current md:flex" transition:name="navbar">
     <div class="group relative -m-2 p-2">
-      <a href="/about">About</a>
+      <a href="/about" class="peer">About</a>
       <div
-        class={`absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 group-hover:flex text-white`}
+        class={`absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 peer-focus:flex peer-hover:flex text-white`}
       >
         <a href="/our-story-and-vision">Our Story &amp; Vision</a>
         <a href="/our-leadership">Our Leadership</a>
