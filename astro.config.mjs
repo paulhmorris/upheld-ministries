@@ -9,6 +9,8 @@ const iconsPath = "node_modules/@shoelace-style/shoelace/dist/assets/icons";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://staging.upheldministries.com",
+  trailingSlash: "never",
   vite: {
     resolve: {
       alias: [

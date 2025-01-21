@@ -11,10 +11,10 @@ const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
 >
   <a href="/" class="z-10 font-orpheus text-lg font-light tracking-wide md:text-3xl">Upheld Ministries</a>
   <nav class="z-10 hidden items-center gap-x-3 text-xl text-current md:flex" transition:name="navbar">
-    <div class="group relative -m-2 p-2">
+    <div class="group relative -m-3 p-3">
       <a href="/about" class="peer">About</a>
       <div
-        class={`absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 peer-focus:flex peer-hover:flex text-white`}
+        class={`absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 peer-focus:flex peer-hover:flex text-white group-hover:flex`}
       >
         <a href="/our-story-and-vision">Our Story &amp; Vision</a>
         <a href="/our-leadership">Our Leadership</a>
