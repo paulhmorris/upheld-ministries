@@ -1,0 +1,225 @@
+---
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+import ContentWrapper from "../components/ContentWrapper.astro";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import calendar2025 from "../assets/images/2025_calendar.png";
+import type { ImageMetadata } from "astro";
+
+import img1 from "../assets/images/events/1.jpg";
+import img2 from "../assets/images/events/2.jpg";
+import img3 from "../assets/images/events/3.jpg";
+import img4 from "../assets/images/events/4.jpg";
+import img5 from "../assets/images/events/5.jpg";
+import img6 from "../assets/images/events/6.jpg";
+import img7 from "../assets/images/events/7.jpg";
+import img8 from "../assets/images/events/8.jpg";
+import img9 from "../assets/images/events/9.jpg";
+import img10 from "../assets/images/events/10.jpg";
+import img11 from "../assets/images/events/11.jpg";
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11];
+
+// TODO: Need this kind of structure from a CMS with /events/{id} pages, but right now client has stuff sort of just plopped on the page so I will copy at the moment
+// const events = [
+//   {
+//     id: 1,
+//     title: "Gather Retreat (Spring)",
+//     description: "Moms, this one is for you! We would love for you to join us at our next Gather Retreat.",
+//     date: "March 28-30, 2025",
+//     cta: "Learn More",
+//   }
+// ];
+
+setBasePath("/shoelace-assets/");
+---
+
+<Layout headerBgColor="bg-transparent">
+  <div class="px-6 pb-20 pt-10 md:px-10">
+    <ContentWrapper>
+      <section>
+        <sl-carousel pagination navigation mouse-dragging loop class="h-full" style="--aspect-ratio: 3/2">
+          {
+            images.map((img) => (
+              <sl-carousel-item>
+                <Image src={img} alt="" />
+              </sl-carousel-item>
+            ))
+          }
+        </sl-carousel>
+      </section>
+
+      <section class="mt-24 flex flex-col gap-y-20">
+        <!-- TODO: move this hardcoded stuff to a CMS -->
+        <div class="flex flex-col gap-x-20 gap-y-8 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Gather Retreat</h2>
+            <p class="text-lg">Spring Retreat - March 28-30, 2025</p>
+            <p class="text-lg">Fall Retreat - September 5-7, 2025</p>
+            <a
+              href="https://youtube.com/shorts/x0uBZHDdzvY?si=aTFAwbKzl-2psTzX"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Watch this!
+            </a>
+            <a
+              href="https://docs.google.com/forms/d/1ND4kFEOrubYH6guhZXvYudf9mhuaBCqjP0v8V4h2Ed4/edit"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Register here!
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>Moms, this one is for you! We would love for you to join us at our next Gather Retreat.</p>
+            <p>
+              Day in and day out, you work so hard, pouring it all out for your child. This retreat is designed so that
+              you can get filled up again! Our goal is to give you a space to REST from the pressures of daily life,
+              WORSHIP our Lord and CONNECT with other moms.
+            </p>
+            <p>
+              This retreat is FREE to you! You just need to get here. Don’t miss out on this awesome opportunity to get
+              refreshed and restored!
+            </p>
+          </div>
+        </div>
+        <!-- END one event -->
+
+        <div class="flex flex-col gap-x-20 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Local Community</h2>
+            <a
+              href="/connect"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Send me more info!
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>Dallas, TX</p>
+            <p>
+              Do you want to connect with other families with medically complex kids? This is the place to do it! We
+              have different lunches, parties and playdates throughout the year. Check out the 2025 calendar below to
+              see our next event!
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-x-20 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Mentorship</h2>
+            <a
+              href="/connect"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Connect me!
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>
+              Does caring for your child feel lonely or isolating? Do you desire encouragement and connection from
+              someone who understands?
+            </p>
+            <p>
+              We can help! Let us connect you with someone who gets it! Receive support and encouragement through your
+              phone!
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-x-20 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Meals</h2>
+            <a
+              href="/connect"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Volunteer
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>
+              Help us serve meals to families in the hospital and those staying at the Ronald McDonald House. This is
+              one way we can bless families, so that they have one less thing to think about during a hospitalization.
+              It allows us to meet and connect with new families.
+            </p>
+            <p>You can volunteer to serve with us, individually or as a group.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-x-20 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Race for Lily Grace</h2>
+            <a
+              href="https://runsignup.com/Race/TX/Dallas/RunforLily"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Sign up here!
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>October 18, 2025</p>
+            <p>Join us to Race for Lily Grace and support Upheld Ministries!</p>
+            <p>
+              This fundraiser was originally designed to help pay for the treatments and therapies for Lily Stigall. It
+              is now our main fundraiser. The money raised through the Race for Lily Grace will be used to minister to
+              parents of medically complex children and fund all of the activities we do to serve them.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-x-20 md:flex-row md:justify-between">
+          <div class="flex shrink-0 basis-72 flex-col items-start gap-y-4">
+            <h2 class="text-5xl font-medium">Lego4Life</h2>
+            <a
+              href="https://www.youtube.com/watch?si=M4NiPmx80jRbPajQ&v=mXwJz4UhyBk&feature=youtu.be"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Watch this!
+            </a>
+            <a
+              href="/connect"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Contact us!
+            </a>
+            <a
+              href="/donate"
+              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+            >
+              Donate!
+            </a>
+          </div>
+
+          <div class="shrink space-y-4 text-lg">
+            <p>
+              Thank you for partnering with us. In 2024, with your help, we were able to deliver 450 Lego sets to
+              Children’s Health (Dallas)!
+            </p>
+            <p>
+              In 2018, after his baby sister spent the entire holiday season hospitalized for a heart transplant, 9 year
+              old, Micah Peek - the oldest son of one of the Upheld Ministry’s board members - dreamed of how he could
+              encourage other kids like him and his siblings, in similar situations. Things have changed six years
+              later, but our heart remains to come alongside families experiencing hospitalization during December.
+              Watch the video for the full story.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-16 flex justify-center">
+        <Image src={calendar2025} alt="" aria-hidden="true" />
+      </div>
+    </ContentWrapper>
+  </div>
+</Layout>
+
+<script>
+  import "@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js";
+  import "@shoelace-style/shoelace/dist/components/carousel/carousel.js";
+  import "@shoelace-style/shoelace/dist/themes/light.css";
+</script>
