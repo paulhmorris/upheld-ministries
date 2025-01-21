@@ -84,9 +84,6 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   const formEl = document.getElementById("contactForm") as HTMLFormElement;
-  if (!formEl) {
-    return;
-  }
   formEl.addEventListener("submit", async function (event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;

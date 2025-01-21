@@ -1,5 +1,4 @@
 // @ts-check
-import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
@@ -30,5 +29,5 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [tailwind({ applyBaseStyles: false }), partytown(), sitemap(), icon()],
+  integrations: [tailwind({ applyBaseStyles: false }), sitemap(), icon()],
 });
