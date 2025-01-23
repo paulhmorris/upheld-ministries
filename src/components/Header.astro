@@ -4,6 +4,7 @@ type Props = {
   bgColor: "bg-transparent" | "bg-brand-dark-grey";
 };
 const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <header
@@ -12,7 +13,11 @@ const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
   <a href="/" class="z-10 font-orpheus text-lg font-light tracking-wide md:text-3xl">Upheld Ministries</a>
   <nav class="z-10 hidden items-center gap-x-3 text-xl text-current md:flex" transition:name="navbar">
     <div class="group relative -m-3 p-3">
-      <a href="/our-story-and-vision" class="peer">About</a>
+      <a
+        href="/our-story-and-vision"
+        class={`peer ${pathname === "/our-story-and-vision" ? "underline underline-offset-4 decoration-2" : ""}`}
+        >About</a
+      >
       <div
         class={`absolute top-10 hidden flex-col gap-2 whitespace-nowrap bg-brand-dark-grey px-3 py-4 peer-focus:flex peer-hover:flex text-white group-hover:flex`}
       >
@@ -20,9 +25,9 @@ const { invertTextColor, bgColor = "bg-transparent" } = Astro.props;
         <a href="/our-leadership">Our Leadership</a>
       </div>
     </div>
-    <a href="/services">Services</a>
-    <a href="/connect">Connect</a>
-    <a href="/events">Events</a>
+    <a href="/services" class={pathname === "/services" ? "underline underline-offset-4 decoration-2" : ""}>Services</a>
+    <a href="/connect" class={pathname === "/connect" ? "underline underline-offset-4 decoration-2" : ""}>Connect</a>
+    <a href="/events" class={pathname === "/events" ? "underline underline-offset-4 decoration-2" : ""}>Events</a>
   </nav>
 
   <a
