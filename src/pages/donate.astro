@@ -1,0 +1,52 @@
+---
+import ContentWrapper from "../components/ContentWrapper.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout headerBgColor="bg-brand-dark-grey">
+  <div class="mt-12 px-6 pb-24 md:px-24 lg:mt-24">
+    <ContentWrapper>
+      <div class="flex flex-col-reverse justify-between gap-8 md:gap-x-16 lg:flex-row lg:gap-x-24">
+        <div class="shrink">
+          <h1 class="font-orpheus text-5xl">Make a donation. Help us care for caregivers.</h1>
+          <div class="mt-6 space-y-4">
+            <p class="text-xl">
+              Caring for a medically complex child is hard work. They are worth it, but it can take a toll on the people
+              that love them the most.
+            </p>
+            <p class="text-xl">
+              Join us in our mission to share the hope and refuge found in Christ with these families.
+            </p>
+            <p class="text-xl">
+              Thank you for your partnership in caring for families of medically complex children, as we seek to provide
+              encouragement, support, connection and rest for them. Our ability to minister to these families is made
+              possible by generous donors like you.
+            </p>
+            <p class="text-xl">
+              Upheld Ministries is a 501(c)3 nonprofit organization and all donations are tax-deductible.
+            </p>
+            <p class="text-xl">
+              If you prefer to send a check, our mailing address is 8724 Mediterranean Drive, Dallas, TX 75238.
+            </p>
+          </div>
+        </div>
+        <div class="w-full grow">
+          <div class="w-full max-w-[500px]">
+            <iframe
+              src="https://donorbox.org/embed/upheld-ministries?language=en"
+              name="donorbox"
+              allowpaymentrequest="allowpaymentrequest"
+              seamless="seamless"
+              height="900px"
+              width="100%"
+              style="max-width: 500px; min-width: 250px; max-height:none!important"
+              allow="payment"></iframe>
+          </div>
+        </div>
+      </div>
+    </ContentWrapper>
+  </div>
+</Layout>
+
+<!-- @ts-ignore -->
+<script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
