@@ -7,23 +7,31 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout headerBgColor="bg-transparent">
   <ContentWrapper>
-    <div class="mt-16 flex flex-col gap-x-32 gap-y-24 px-6 pb-20 md:mt-24 md:flex-row md:px-24">
-      <div class="shrink basis-[50%]">
-        <Image src={connect} alt="" aria-hidden="true" class="size-full rounded-t-full object-cover object-center" />
+    <div class="mt-16 flex flex-col gap-x-32 gap-y-24 px-6 pb-20 md:mt-24 md:px-24 lg:flex-row">
+      <div class="basis-[50%]">
+        <Image
+          src={connect}
+          alt=""
+          loading="eager"
+          aria-hidden="true"
+          class="size-full rounded-t-full object-cover object-center"
+        />
       </div>
 
       <div class="flex w-full shrink-0 grow basis-[50%] flex-col justify-start">
-        <h1 class="font-orpheus text-5xl">Let's support each other</h1>
-        <svg xmlns="http://www.w3.org/2000/svg" width="460" height="15" viewBox="0 0 460 15">
-          <path
-            d="M 0 10 
-             C 200 5 400 5 600 10 
-             C 650 12 675 8 700 10"
-            stroke="black"
-            stroke-width="2"
-            fill="none"
-            stroke-linecap="round"></path>
-        </svg>
+        <div class="flex flex-col items-start overflow-hidden">
+          <h1 class="font-orpheus text-5xl">Let's support each other</h1>
+          <svg xmlns="http://www.w3.org/2000/svg" width="390" height="15" viewBox="0 0 390 15" class="max-w-[100dvw]">
+            <path
+              d="M 0 10 
+               C 200 5 400 5 600 10 
+               C 650 12 675 8 700 10"
+              stroke="black"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"></path>
+          </svg>
+        </div>
 
         <form action="TODO" method="post" id="contactForm">
           <div
