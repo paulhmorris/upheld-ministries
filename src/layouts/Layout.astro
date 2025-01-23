@@ -36,8 +36,7 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
     <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: dark)" href="/favicon-dark-theme.png" />
     <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: light)" href="/favicon-light-theme.png" />
     <link rel="canonical" href={Astro.url.toString()} />
-
-    <title>Upheld Ministries</title>
+    <slot name="meta" />
   </head>
 
   <ClientRouter />
@@ -60,4 +59,6 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
     </main>
     <Footer />
   </body>
+
+
 </html>

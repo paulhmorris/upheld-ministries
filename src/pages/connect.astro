@@ -6,6 +6,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout headerBgColor="bg-transparent">
+  <title slot="meta">Connect | Upheld Ministries</title>
+
   <ContentWrapper>
     <div class="mt-16 flex flex-col gap-x-32 gap-y-24 px-6 pb-20 md:mt-24 md:px-24 lg:flex-row">
       <div class="basis-[50%]">
@@ -33,10 +35,11 @@ import Layout from "../layouts/Layout.astro";
           </svg>
         </div>
 
-        <form action="TODO" method="post" id="contactForm">
+        <form method="post" id="contactForm" enctype="application/x-www-form-urlencoded">
+          <input type="hidden" name="clientId" value="136cf087-2d7e-4494-86b8-4aee13f0f3d0" />
           <div
             class="cf-turnstile"
-            data-sitekey={import.meta.env.VITE_CF_TURNSTILE_SITE_KEY}
+            data-sitekey={import.meta.env.PUBLIC_CF_TURNSTILE_SITE_KEY}
             data-callback="javascriptCallback"
           >
           </div>
@@ -61,22 +64,23 @@ import Layout from "../layouts/Layout.astro";
             </label>
             <label>
               Tell us your story!
-              <textarea name="story" rows="5"></textarea>
+              <textarea name="story" rows="5" maxlength={1000}></textarea>
             </label>
 
             <fieldset class="flex flex-col gap-2">
               <legend class="mb-2 text-xl font-medium">What are you interested in?</legend>
               <label
-                ><input type="checkbox" name="gatherRetreat" />Please send me an application for the Gather Retreat</label
+                ><input type="checkbox" name="gatherRetreatInfo" />Please send me an application for the Gather Retreat</label
               >
               <label><input type="checkbox" name="localLunches" />I would like more information on Local Lunches</label>
               <label><input type="checkbox" name="lego4Life" />Please send me the address for Lego4Life</label>
               <label><input type="checkbox" name="raceForLilyGrace" />Help me sign up for the Race for Lily Grace</label
               >
               <label
-                ><input type="checkbox" name="speakWithSomeone" />I would like to speak with someone from Upheld</label
+                ><input type="checkbox" name="speakWithSomeoneFromUpheld" />I would like to speak with someone from
+                Upheld</label
               >
-              <label><input type="checkbox" name="volunteer" />I would like to volunteer with Upheld</label>
+              <label><input type="checkbox" name="volunteerWithUpheld" />I would like to volunteer with Upheld</label>
             </fieldset>
             <button
               type="submit"
@@ -84,7 +88,7 @@ import Layout from "../layouts/Layout.astro";
             >
           </div>
         </form>
-        <p id="formMessage" class="mt-4 hidden"></p>
+        <p id="formMessage" class="mt-4"></p>
       </div>
     </div>
   </ContentWrapper>
@@ -107,14 +111,18 @@ import Layout from "../layouts/Layout.astro";
     const messageElement = document.getElementById("formMessage") as HTMLParagraphElement;
 
     try {
-      const response = await fetch("YOUR_API_ENDPOINT", {
-        method: "POST",
-        body: formData,
+      const response = await fetch(import.meta.env.PUBLIC_FORM_ENDPOINT, {
+        method: formEl.method,
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
 
       if (response.ok) {
         messageElement.textContent = "Form submitted successfully!";
         messageElement.className = "text-success mt-4";
+        formEl.reset();
       } else {
         messageElement.textContent = "Form submission failed. Please try again.";
         messageElement.className = "text-danger mt-4";
@@ -123,7 +131,5 @@ import Layout from "../layouts/Layout.astro";
       messageElement.textContent = "Form submission failed. Please try again.";
       messageElement.className = "text-danger mt-4";
     }
-
-    messageElement.classList.remove("hidden");
   });
 </script>

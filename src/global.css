@@ -41,7 +41,7 @@
   input[type="email"],
   input[type="tel"],
   textarea {
-    @apply w-full rounded-none border border-[#A9A9A9] bg-[#FAFAFA] px-4 py-2;
+    @apply w-full rounded-none border border-[#A9A9A9] bg-[#FAFAFA] px-4 py-2 ring-offset-white focus:outline-none focus:ring-2 focus:ring-brand-dark-teal focus:ring-offset-2;
   }
 
   label:has(input[type="checkbox"]) {
