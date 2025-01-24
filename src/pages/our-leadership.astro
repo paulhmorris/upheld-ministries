@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import team1 from "../assets/images/team1.jpg";
 import team2 from "../assets/images/team2.jpg";
 import team3 from "../assets/images/team3.jpg";
@@ -10,68 +9,69 @@ import team7 from "../assets/images/team7.jpg";
 import team8 from "../assets/images/team8.jpg";
 import team9 from "../assets/images/team9.jpg";
 import ContentWrapper from "../components/ContentWrapper.astro";
+import TeamMember from "../components/TeamMember.astro";
 import Layout from "../layouts/Layout.astro";
 
 const leadership = [
   {
     id: 1,
-    img: team1,
+    image: team1,
     name: "Kathy Stigall",
     description:
       "Kathy graduated from the University of Texas, where she played volleyball. She is married to her best friend, Steve. Kathy is the proud mom to 4, including Lily (her medically complex child). In 2022, after Lily passed away, God placed on Kathy’s heart a desire to serve “medical moms.” Kathy loves spending time outside, exercising, reading, and spending time with her family.",
   },
   {
     id: 1,
-    img: team2,
+    image: team2,
     name: "Steve Stigall",
     description:
       "Steve played football at the University of Texas, where he earned both his undergraduate and master’s degree. Steve is the Men’s Discipleship and Groups Pastor at Eastside Community Church. He is married to Kathy and together they have had 4 incredible kids. Steve learned first hand what it is like to care for a medically complex kid, when his youngest daughter, Lily, had a nonfatal drowning accident leaving her with a severe brain injury. Steve enjoys hanging out with his family, competing in sports, fly fishing, watching college football, and eating Texas BBQ.",
   },
   {
     id: 1,
-    img: team3,
+    image: team3,
     name: "Micahl Wester",
     description:
       "Micahl graduated from Texas Tech University and is a Managing Director at AlTi-Global, working with multigenerational families and the financial complexities they encounter. She is registered as a Certified Private Wealth Advisor and Certified Financial Planner practitioner. Micahl and her husband, Matt, reside in Dallas with their five kids. When not at youth sporting events or work, you’ll find Micahl with a good book, preparing to host friends for dinner or planning a trip to the beach.",
   },
   {
     id: 1,
-    img: team4,
+    image: team4,
     name: "Dr Christi Carter",
     description:
       "Christi is a board-certified ophthalmologist in Athens, TX. She played volleyball at Texas A&M University and received her undergraduate degree there. She then completed medical school at the University of Texas Medical at Houston and residency at the University of Iowa Hospitals and Clinics. Christi loves spending time with her husband (Christopher) and three sons, exercising, wakesurfing, reading, and being outdoors.",
   },
   {
     id: 1,
-    img: team5,
+    image: team5,
     name: "Becky Peek",
     description:
       "Happy wife to Kevin, Aggie graduate, and homeschooling mom of five, Becky knows firsthand what it means to be a medical mom. When her fifth child, Evie, was born with heterotaxy syndrome in 2017, life was never the same again. After leaving their home in China to better care for Evie, the Peeks learned to make the hospital a home throughout Evie’s heart transplant, liver transplant, and the many complications that came in between. But there was always hope and there was always health through Christ. Evie’s death in 2022 has left Becky with a profound desire to serve kids and families as both a board member of Upheld and a future pediatric nurse. Most waking moments find her with her family, but her free time finds her reading, writing, or working out.",
   },
   {
     id: 1,
-    img: team6,
+    image: team6,
     name: "Dr Eileen Psencik",
     description:
       "Eileen completed her undergraduate degree at the University of Texas and received her Doctorate of Chiropractic from Parker College of Chiropractic. She combines the specialties of Applied Kinesiology and Neurology in order to address the patient’s health care as a whole and to determine the underlying cause of their concerns. Eileen enjoys hiking and camping with her husband, Chris, and their three daughters.",
   },
   {
     id: 1,
-    img: team7,
+    image: team7,
     name: "Carrie Deetjen PT, DPT, PCES",
     description:
       "Carrie completed her undergraduate degree at Stephen F. Austin State University where she competed as part of the Women’s Track and Field Team. She went on to receive her Doctorate in Physical Therapy from Texas State University in 2016. She now balances working as a physical therapist in an outpatient clinic and raising three boys with her husband, Daniel. Carrie is passionate about running and enjoys horseback riding, whenever she gets the chance.",
   },
   {
     id: 1,
-    img: team8,
+    image: team8,
     name: "Jana Keck",
     description:
       "Jana graduated from Texas Tech University in 2010 before serving a missionary team overseas with the International Mission Board. She currently resides in Dallas and is a Client Success Manager for a multinational software company. Jana is passionate about people and helping businesses operate smoothly and automate processes. When she’s not working, you can find her studying theology, globetrotting, or fishing in the mountains.",
   },
   {
     id: 1,
-    img: team9,
+    image: team9,
     name: "Keri Miller MPAS, PA-C",
     description:
       "Born and raised in Dallas, Keri received her master’s in physician assistant studies at UT Southwestern Medical Center. Keri is passionate about serving others at her job, her church, and in her community. Keri enjoys running, traveling, including international mission trips, and working on projects around her home.",
@@ -86,17 +86,7 @@ const leadership = [
     <div class="px-6 md:px-24">
       <ContentWrapper>
         <ul class="mt-16 grid grid-cols-1 items-start justify-center gap-24 md:mt-24 md:grid-cols-2 lg:grid-cols-3">
-          {
-            leadership.map((l) => (
-              <div class="mx-auto flex w-full max-w-[400px] flex-col items-start justify-between gap-y-4">
-                <Image src={l.img} alt={l.name} class="h-[475px] w-full object-cover object-top" />
-                <div>
-                  <h2 class="text-xl font-semibold">{l.name}</h2>
-                  <p class="text-base">{l.description}</p>
-                </div>
-              </div>
-            ))
-          }
+          {leadership.map((l) => <TeamMember {...l} />)}
         </ul>
 
         <p class="py-32 text-center text-xl">

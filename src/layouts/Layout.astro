@@ -37,17 +37,15 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
     <link rel="icon" type="image/x-icon" media="(prefers-color-scheme: light)" href="/favicon-light-theme.png" />
     <link rel="canonical" href={Astro.url.toString()} />
     <slot name="meta" />
+    <!-- Umami -->
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-domains="upheldministries.org"
+      data-website-id="c55d67c4-eb9c-416d-b2fb-72aad463bb41"></script>
+    <ClientRouter />
   </head>
-
-  <ClientRouter />
-
-  <!-- Umami -->
-  <script
-    is:inline
-    defer
-    src="https://cloud.umami.is/script.js"
-    data-domains="upheldministries.org"
-    data-website-id="c55d67c4-eb9c-416d-b2fb-72aad463bb41"></script>
 
   <body class="flex h-full min-h-screen flex-col font-serif text-brand-dark-grey">
     <Header
@@ -59,6 +57,8 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
     </main>
     <Footer />
   </body>
-
-
 </html>
+
+<script>
+  import "@shoelace-style/shoelace/dist/themes/light.css";
+</script>
