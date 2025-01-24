@@ -11,7 +11,7 @@ type Props = {
 const { id, date, title, imgSrc, location } = Astro.props;
 ---
 
-<a href={`/events/${id}`} class="flex aspect-square max-h-80 max-w-64 flex-col gap-y-2">
+<div class="flex aspect-square max-h-80 max-w-64 flex-col gap-y-2">
   <div class="overflow-hidden rounded-md">
     {
       typeof imgSrc === "string" ? (
@@ -26,4 +26,4 @@ const { id, date, title, imgSrc, location } = Astro.props;
     <span>{location} | </span>
     <span>{date}</span>
   </p>
-</a>
+</div>
