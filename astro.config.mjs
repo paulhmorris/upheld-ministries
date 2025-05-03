@@ -7,9 +7,8 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const iconsPath = "node_modules/@shoelace-style/shoelace/dist/assets/icons";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://staging.upheldministries.org",
+  site: "https://upheldministries.org",
   trailingSlash: "never",
   vite: {
     resolve: {
