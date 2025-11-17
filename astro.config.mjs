@@ -1,6 +1,6 @@
 // @ts-check
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import { viteStaticCopy } from "vite-plugin-static-copy";
@@ -8,27 +8,15 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 const iconsPath = "node_modules/@shoelace-style/shoelace/dist/assets/icons";
 
 export default defineConfig({
+  prefetch: { prefetchAll: true },
   site: "https://upheldministries.org",
   trailingSlash: "never",
   vite: {
-    resolve: {
-      alias: [
-        {
-          find: /\/assets\/icons\/(.+)/,
-          replacement: `${iconsPath}/$1`,
-        },
-      ],
-    },
+    resolve: { alias: [{ find: /\/assets\/icons\/(.+)/, replacement: `${iconsPath}/$1` }] },
     plugins: [
-      viteStaticCopy({
-        targets: [
-          {
-            src: iconsPath,
-            dest: "assets",
-          },
-        ],
-      }),
+      tailwindcss({ optimize: { minify: true } }),
+      viteStaticCopy({ targets: [{ src: iconsPath, dest: "assets" }] }),
     ],
   },
-  integrations: [tailwind({ applyBaseStyles: false }), sitemap(), icon()],
+  integrations: [sitemap(), icon()],
 });

@@ -7,14 +7,16 @@ import Layout from "../layouts/Layout.astro";
 <Layout headerBgColor="bg-brand-dark-grey">
   <title slot="meta">About | Upheld Ministries</title>
   <!-- HERO -->
-  <div class="grid place-items-center bg-brand-dark-grey px-6 pb-16 pt-0 md:py-32">
-    <h1 class="max-w-screen-md text-balance text-center font-orpheus text-[40px] text-white sm:text-4xl md:text-6xl">
+  <div class="bg-brand-dark-grey grid place-items-center px-6 pt-0 pb-16 md:py-32">
+    <h1
+      class="font-orpheus max-w-(--breakpoint-md) text-center text-[40px] text-balance text-white sm:text-4xl md:text-6xl"
+    >
       Encourage. Rest. Connect. Support.
     </h1>
   </div>
 
   <div class="mt-16 px-6 pb-20 md:mt-24">
-    <section class="mx-auto max-w-screen-md space-y-12 md:space-y-48">
+    <section class="mx-auto max-w-(--breakpoint-md) space-y-12 md:space-y-48">
       <!-- Our Story -->
       <div class="grid grid-cols-1 gap-x-16 gap-y-4 md:grid-cols-3">
         <div class="col-span-1">
@@ -22,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
           <Image
             src={ourStory}
             alt="Lily Grace smiling brightly in her car seat."
-            class="mx-auto mt-4 max-w-48 rounded object-contain md:mt-[33%]"
+            class="mx-auto mt-4 max-w-48 rounded-xs object-contain md:mt-[33%]"
           />
         </div>
         <div class="col-span-2 space-y-4 text-xl">
@@ -85,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
           </p>
           <p>Thank you for being part of our journey. Together, we can make a difference.</p>
           <div class="mt-8 flex justify-center">
-            <a href="/services" class="rounded-md bg-brand-dark-grey px-10 py-4 font-serif text-lg text-white"
+            <a href="/services" class="bg-brand-dark-grey rounded-md px-10 py-4 font-serif text-lg text-white"
               >Our Services</a
             >
           </div>
