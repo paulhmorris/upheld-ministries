@@ -39,7 +39,14 @@ setBasePath("/shoelace-assets/");
   <div class="px-6 pb-20 pt-10 md:px-10">
     <ContentWrapper>
       <section>
-        <sl-carousel pagination navigation mouse-dragging loop class="-mx-6 h-full" style="--aspect-ratio: 3/2;">
+        <sl-carousel
+          pagination
+          navigation
+          mouse-dragging
+          loop
+          class="-mx-6 h-full lg:max-h-[70dvh]"
+          style="--aspect-ratio: 3/2;"
+        >
           {
             images.map((img) => (
               <sl-carousel-item>
