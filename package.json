@@ -25,5 +25,8 @@
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss-animate": "^1.0.7",
     "vite-plugin-static-copy": "^2.2.0"
+  },
+  "volta": {
+    "node": "24.11.1"
   }
 }

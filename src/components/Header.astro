@@ -87,7 +87,7 @@ setBasePath("/shoelace-assets/");
     const openButton = drawer.nextElementSibling as HTMLButtonElement;
     const closeButton = drawer.querySelector('sl-button[variant="primary"]') as HTMLButtonElement;
 
-    openButton.addEventListener("click", () => drawer.show());
-    closeButton.addEventListener("click", () => drawer.hide());
+    openButton?.addEventListener("click", () => drawer.show());
+    closeButton?.addEventListener("click", () => drawer.hide());
   });
 </script>

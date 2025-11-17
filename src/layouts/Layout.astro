@@ -3,6 +3,7 @@ import "@fontsource-variable/eb-garamond";
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Banner from "../components/Banner.astro";
 import "../global.css";
 import NewsletterForm from "../components/NewsletterForm.astro";
 
@@ -72,6 +73,7 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
   </head>
 
   <body class="flex h-full min-h-screen flex-col font-serif text-brand-dark-grey">
+    <Banner />
     <Header
       bgColor={headerBgColor}
       invertTextColor={["/our-leadership", "/connect", "/events"].includes(Astro.url.pathname)}
