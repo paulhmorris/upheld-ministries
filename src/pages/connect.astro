@@ -23,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="flex w-full shrink-0 grow basis-[50%] flex-col justify-start">
         <div class="flex flex-col items-start overflow-hidden">
           <h1 class="font-orpheus text-5xl">Let's support each other</h1>
-          <svg xmlns="http://www.w3.org/2000/svg" width="390" height="15" viewBox="0 0 390 15" class="max-w-[100dvw]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="390" height="15" viewBox="0 0 390 15" class="max-w-dvw">
             <path
               d="M 0 10 
                C 200 5 400 5 600 10 
@@ -45,46 +45,53 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <div class="flex flex-col gap-4">
             <div class="mt-4 flex gap-4">
-              <label class="w-full">
+              <label class="space-y-2" class="w-full">
                 First Name <span class="text-base opacity-75">(required)</span>
                 <input type="text" name="firstName" required maxlength={255} />
               </label>
-              <label class="w-full">
+              <label class="space-y-2" class="w-full">
                 Last Name <span class="text-base opacity-75">(required)</span>
                 <input type="text" name="lastName" required maxlength={255} />
               </label>
             </div>
-            <label>
+            <label class="space-y-2">
               Email <span class="text-base opacity-75">(required)</span>
               <input type="email" name="email" required maxlength={255} />
             </label>
-            <label>
+            <label class="space-y-2">
               Phone
               <input type="tel" name="phone" maxlength={15} />
             </label>
-            <label>
+            <label class="space-y-2">
               Tell us your story!
               <textarea name="story" rows="5" maxlength={1000}></textarea>
             </label>
 
             <fieldset class="flex flex-col gap-2">
               <legend class="mb-2 text-xl font-medium">What are you interested in?</legend>
-              <label
+              <label class="space-y-2"
                 ><input type="checkbox" name="gatherRetreatInfo" />Please send me an application for the Gather Retreat</label
               >
-              <label><input type="checkbox" name="localLunches" />I would like more information on Local Lunches</label>
-              <label><input type="checkbox" name="lego4Life" />Please send me the address for Lego4Life</label>
-              <label><input type="checkbox" name="raceForLilyGrace" />Help me sign up for the Race for Lily Grace</label
+              <label class="space-y-2"
+                ><input type="checkbox" name="localLunches" />I would like more information on Local Lunches</label
               >
-              <label
+              <label class="space-y-2"
+                ><input type="checkbox" name="lego4Life" />Please send me the address for Lego4Life</label
+              >
+              <label class="space-y-2"
+                ><input type="checkbox" name="raceForLilyGrace" />Help me sign up for the Race for Lily Grace</label
+              >
+              <label class="space-y-2"
                 ><input type="checkbox" name="speakWithSomeoneFromUpheld" />I would like to speak with someone from
                 Upheld</label
               >
-              <label><input type="checkbox" name="volunteerWithUpheld" />I would like to volunteer with Upheld</label>
+              <label class="space-y-2"
+                ><input type="checkbox" name="volunteerWithUpheld" />I would like to volunteer with Upheld</label
+              >
             </fieldset>
             <button
               type="submit"
-              class="self-start rounded-md bg-brand-dark-grey px-12 py-4 font-serif text-xl text-white">Submit</button
+              class="bg-brand-dark-grey self-start rounded-md px-12 py-4 font-serif text-xl text-white">Submit</button
             >
           </div>
         </form>
@@ -94,13 +101,7 @@ import Layout from "../layouts/Layout.astro";
   </ContentWrapper>
 </Layout>
 
-<style>
-  label {
-    @apply space-y-2;
-  }
-</style>
-
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
 <script>
   const formEl = document.getElementById("contactForm") as HTMLFormElement;

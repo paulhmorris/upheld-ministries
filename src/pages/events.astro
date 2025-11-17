@@ -36,10 +36,17 @@ setBasePath("/shoelace-assets/");
 
 <Layout headerBgColor="bg-transparent">
   <title slot="meta">Events | Upheld Ministries</title>
-  <div class="px-6 pb-20 pt-10 md:px-10">
+  <div class="px-6 pt-10 pb-20 md:px-10">
     <ContentWrapper>
       <section>
-        <sl-carousel pagination navigation mouse-dragging loop class="-mx-6 h-full" style="--aspect-ratio: 3/2;">
+        <sl-carousel
+          pagination
+          navigation
+          mouse-dragging
+          loop
+          class="-mx-6 h-full lg:max-h-[70dvh]"
+          style="--aspect-ratio: 3/2;"
+        >
           {
             images.map((img) => (
               <sl-carousel-item>
@@ -55,19 +62,18 @@ setBasePath("/shoelace-assets/");
         <div class="flex flex-col gap-x-20 gap-y-8 md:flex-row md:justify-center">
           <div class="flex shrink-0 flex-col items-start gap-y-4 md:basis-96">
             <h2 class="font-serif text-5xl font-medium">Gather Retreat</h2>
-            <p class="text-lg">Spring Retreat - March 28-30, 2025</p>
-            <p class="text-lg">Fall Retreat - September 5-7, 2025</p>
+            <p class="text-lg">Spring Retreat - March 27-29, 2026</p>
             <a
               href="https://youtube.com/shorts/x0uBZHDdzvY?si=aTFAwbKzl-2psTzX"
               target="_blank"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Watch this!
             </a>
             <a
               href="https://docs.google.com/forms/d/1ND4kFEOrubYH6guhZXvYudf9mhuaBCqjP0v8V4h2Ed4/edit"
               target="_blank"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Register here!
             </a>
@@ -93,7 +99,7 @@ setBasePath("/shoelace-assets/");
             <h2 class="font-serif text-5xl font-medium">Local Community</h2>
             <a
               href="/connect"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Send me more info!
             </a>
@@ -114,7 +120,7 @@ setBasePath("/shoelace-assets/");
             <h2 class="font-serif text-5xl font-medium">Mentorship</h2>
             <a
               href="/connect"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Connect me!
             </a>
@@ -137,7 +143,7 @@ setBasePath("/shoelace-assets/");
             <h2 class="font-serif text-5xl font-medium">Meals</h2>
             <a
               href="/connect"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Volunteer
             </a>
@@ -159,14 +165,13 @@ setBasePath("/shoelace-assets/");
             <a
               href="https://runsignup.com/Race/TX/Dallas/RunforLily"
               target="_blank"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Sign up here!
             </a>
           </div>
 
           <div class="max-w-2xl space-y-4 text-lg">
-            <p>October 18, 2025</p>
             <p>Join us to Race for Lily Grace and support Upheld Ministries!</p>
             <p>
               This fundraiser was originally designed to help pay for the treatments and therapies for Lily Stigall. It
@@ -179,32 +184,30 @@ setBasePath("/shoelace-assets/");
         <div class="flex flex-col gap-x-20 gap-y-8 md:flex-row md:justify-center">
           <div class="flex shrink-0 flex-col items-start gap-y-4 md:basis-96">
             <h2 class="font-serif text-5xl font-medium">Lego4Life</h2>
+            <p class="text-lg">December 15th, 2025</p>
+
             <a
               href="https://www.youtube.com/watch?si=M4NiPmx80jRbPajQ&v=mXwJz4UhyBk&feature=youtu.be"
               target="_blank"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Watch this!
             </a>
             <a
               href="/connect"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Contact us!
             </a>
             <a
               href="/donate"
-              class="block rounded-md bg-brand-dark-grey px-12 py-4 text-center font-serif text-lg text-white"
+              class="bg-brand-dark-grey block rounded-md px-12 py-4 text-center font-serif text-lg text-white"
             >
               Donate!
             </a>
           </div>
 
           <div class="max-w-2xl space-y-4 text-lg">
-            <p>
-              Thank you for partnering with us. In 2024, with your help, we were able to deliver 450 Lego sets to
-              Children’s Health (Dallas)!
-            </p>
             <p>
               In 2018, after his baby sister spent the entire holiday season hospitalized for a heart transplant, 9 year
               old, Micah Peek - the oldest son of one of the Upheld Ministry’s board members - dreamed of how he could
@@ -226,5 +229,4 @@ setBasePath("/shoelace-assets/");
 <script>
   import "@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js";
   import "@shoelace-style/shoelace/dist/components/carousel/carousel.js";
-  import "@shoelace-style/shoelace/dist/themes/light.css";
 </script>
