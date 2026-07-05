@@ -1,0 +1,179 @@
+---
+import ContentWrapper from "../components/ContentWrapper.astro";
+import Layout from "../layouts/Layout.astro";
+
+const REGISTER_URL = "https://runsignup.com/Race/TX/Dallas/RunforLily";
+
+const details = [
+  {
+    label: "When",
+    lines: ["Saturday, October 3, 2026", "5K — 8:00 a.m.", "Kid's Fun Run — 8:45 a.m."],
+  },
+  {
+    label: "Where",
+    lines: ["Flag Pole Hill", "8015 Doran Circle", "Dallas, TX 75201"],
+  },
+  {
+    label: "Ways to Join",
+    lines: ["5K — in-person or virtual", "Kid's Fun Run / 1K", "Cheering Section"],
+  },
+];
+
+// Sponsor logos. To add a sponsor, drop their logo on the CDN
+// (assets.upheldministries.org) and add an entry here:
+//   { name: "Acme Co", logo: "https://assets.upheldministries.org/images/sponsors/acme.png", url: "https://acme.com" }
+type Sponsor = { name: string; logo: string; url?: string };
+const sponsors: Array<Sponsor> = [];
+---
+
+<Layout headerBgColor="bg-brand-dark-grey">
+  <title slot="meta">Race for Lily Grace | Upheld Ministries</title>
+
+  <!-- HERO -->
+  <div class="bg-brand-dark-grey grid place-items-center px-6 pt-4 pb-20 text-center text-white md:py-32">
+    <div class="flex max-w-(--breakpoint-md) flex-col items-center gap-y-6">
+      <p class="text-brand-orange font-serif text-lg tracking-[0.2em] uppercase">In-Person 5K &amp; Kid's Fun Run</p>
+      <h1 class="font-orpheus text-[40px] text-balance sm:text-5xl md:text-7xl">Race for Lily Grace</h1>
+      <p class="font-serif text-xl md:text-2xl">October 3, 2026 &middot; Flag Pole Hill, Dallas, TX</p>
+      <a
+        href={REGISTER_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-brand-orange text-brand-dark-grey mt-2 rounded-md px-12 py-4 font-serif text-lg font-medium"
+      >
+        Register for the Race<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="px-6 pt-16 pb-20 md:pt-24">
+    <ContentWrapper>
+      <section class="mx-auto flex max-w-(--breakpoint-md) flex-col gap-y-20 md:gap-y-28">
+        <!-- ABOUT -->
+        <div class="space-y-6 text-center">
+          <h2 class="font-orpheus text-4xl font-light md:text-5xl">Run in her honor. Race for their hope.</h2>
+          <div class="mx-auto max-w-2xl space-y-4 text-lg">
+            <p>
+              Join us to Race for Lily Grace — Upheld Ministries' biggest event of the year and our main fundraiser.
+              Every runner, walker, and cheerleader helps us come alongside families caring for medically complex
+              children.
+            </p>
+            <p>
+              This fundraiser was originally created to help pay for Lily Stigall's treatments and therapies. Today, the
+              funds raised are used to minister to parents of medically complex children and to fund all of the ways we
+              serve them throughout the year — with encouragement, connection, rest, and support.
+            </p>
+            <p>Can't make it in person? Register virtually and race with us from anywhere.</p>
+          </div>
+        </div>
+
+        <!-- RACE DETAILS -->
+        <div class="space-y-10">
+          <h2 class="font-orpheus text-center text-4xl font-light md:text-5xl">Race Details</h2>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {
+              details.map((detail) => (
+                <div class="bg-brand-blurple flex flex-col gap-y-3 rounded-md px-8 py-8">
+                  <h3 class="font-orpheus text-2xl font-light">{detail.label}</h3>
+                  <div class="space-y-2">
+                    {detail.lines.map((line) => (
+                      <p class="text-base leading-snug">{line}</p>
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- COURSE MAP -->
+          <!-- <div class="space-y-4">
+            <h3 class="font-orpheus text-3xl font-light">Course Map</h3> -->
+          <!--
+              Swap this placeholder for the course map once it's ready, e.g.:
+              <Image src={courseMap} alt="Race for Lily Grace 5K course map" class="w-full rounded-md" />
+              or an <img> from the CDN:
+              <img src="https://assets.upheldministries.org/images/race-course-map.png" alt="..." class="w-full rounded-md" />
+            -->
+          <!-- <div
+              class="grid min-h-64 place-items-center rounded-md border-2 border-dashed border-[#A9A9A9] bg-[#FAFAFA] px-6 text-center"
+            >
+              <p class="text-lg text-[#6b6b6b]">The 2026 course map is on its way — check back soon!</p>
+            </div>
+          </div> -->
+
+          <div class="flex justify-center">
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-brand-dark-grey rounded-md px-12 py-4 font-serif text-lg text-white"
+            >
+              Register Now<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- SPONSORS -->
+        <div class="space-y-8 text-center">
+          <div class="space-y-4">
+            <h2 class="font-orpheus text-4xl font-light md:text-5xl">Our Sponsors</h2>
+            <p class="mx-auto max-w-2xl text-lg">
+              This race is made possible by the generosity of local businesses and partners who share our heart for
+              medically complex families. We are so grateful for their support.
+            </p>
+          </div>
+
+          {
+            sponsors.length > 0 ? (
+              <ul class="grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-4">
+                {sponsors.map((sponsor) => (
+                  <li class="flex items-center justify-center">
+                    {sponsor.url ? (
+                      <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                        <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="max-h-24 w-full object-contain" />
+                        <span class="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    ) : (
+                      <img src={sponsor.logo} alt={sponsor.name} class="max-h-24 w-full object-contain" />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-lg italic">Sponsors for the 2026 race will be announced soon.</p>
+            )
+          }
+
+          <div class="bg-brand-blurple mx-auto max-w-2xl space-y-4 rounded-md px-8 py-10">
+            <h3 class="font-orpheus text-2xl font-light">Interested in sponsoring?</h3>
+            <p class="text-lg">
+              Partner with us to support families caring for medically complex children. We'd love to tell you more
+              about sponsorship opportunities for the Race for Lily Grace.
+            </p>
+            <div class="flex justify-center">
+              <a href="/connect" class="bg-brand-dark-grey rounded-md px-10 py-4 font-serif text-lg text-white">
+                Become a Sponsor
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </ContentWrapper>
+  </div>
+
+  <!-- CLOSING CTA -->
+  <div class="bg-brand-dark-grey px-6 py-20 text-center text-white">
+    <div class="mx-auto flex max-w-(--breakpoint-md) flex-col items-center gap-y-6">
+      <h2 class="font-orpheus text-4xl font-light md:text-5xl">Ready to race with us?</h2>
+      <p class="font-serif text-xl">Lace up, show up, and help us uphold families who need it most.</p>
+      <a
+        href={REGISTER_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-brand-orange text-brand-dark-grey rounded-md px-12 py-4 font-serif text-lg font-medium"
+      >
+        Register for the Race<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </div>
+  </div>
+</Layout>
