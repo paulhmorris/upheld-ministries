@@ -11,6 +11,7 @@ export default defineConfig({
   prefetch: { prefetchAll: true },
   site: "https://upheldministries.org",
   trailingSlash: "never",
+  image: { layout: "constrained" },
   vite: {
     resolve: { alias: [{ find: /\/assets\/icons\/(.+)/, replacement: `${iconsPath}/$1` }] },
     plugins: [
