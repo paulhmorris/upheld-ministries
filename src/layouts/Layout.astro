@@ -30,7 +30,7 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
     <meta property="og:title" content="Upheld Ministries" />
     <meta property="og:url" content="https://www.upheldministries.org" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="/og-image.jpg" />
     <meta
       property="og:description"
       content="Upheld Ministries provides support and rest for parents of medically complex children through Biblical truth, community connection, and various services."
@@ -74,7 +74,7 @@ const { headerBgColor = "bg-transparent" } = Astro.props;
   </head>
 
   <body class="text-brand-dark-grey flex h-full min-h-screen flex-col font-serif">
-    <!-- <Banner /> -->
+    <Banner />
     <Header
       bgColor={headerBgColor}
       invertTextColor={["/our-leadership", "/connect", "/events"].includes(Astro.url.pathname)}

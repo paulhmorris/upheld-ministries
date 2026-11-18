@@ -57,7 +57,12 @@ const services = [
       {
         services.map((s) => (
           <li class="mx-auto flex w-full max-w-[550px] flex-col items-center justify-center gap-y-4">
-            <Image src={s.img} alt={s.title} class="h-[380px] w-full rounded-xs object-cover object-center" />
+            <Image
+              src={s.img}
+              width={1100}
+              alt={s.title}
+              class="h-[380px] w-full rounded-xs object-cover object-center"
+            />
             <h2 class="font-orpheus text-4xl font-bold">{s.title}</h2>
             <p class="text-center">{s.description}</p>
             {s.link && (

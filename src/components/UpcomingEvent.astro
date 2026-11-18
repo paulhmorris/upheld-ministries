@@ -17,7 +17,7 @@ const { id, date, title, imgSrc, location } = Astro.props;
       typeof imgSrc === "string" ? (
         <img src={imgSrc} alt="" aria-hidden="true" class="size-full object-cover object-center" />
       ) : (
-        <Image src={imgSrc} alt="" aria-hidden="true" class="size-full object-cover object-center" />
+        <Image src={imgSrc} width={512} alt="" aria-hidden="true" class="size-full object-cover object-center" />
       )
     }
   </div>
