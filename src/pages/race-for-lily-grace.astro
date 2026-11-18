@@ -1,6 +1,16 @@
 ---
+import type { ImageMetadata } from "astro";
 import ContentWrapper from "../components/ContentWrapper.astro";
+import Slideshow from "../components/Slideshow.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import chathamConstruction from "../assets/images/sponsors/chatham-construction.webp";
+import filesAndAssociates from "../assets/images/sponsors/files-and-associates.webp";
+import kyleSharpeFamily from "../assets/images/sponsors/kyle-sharpe-family.webp";
+import midwayElectrical from "../assets/images/sponsors/midway-electrical.webp";
+import remodelit from "../assets/images/sponsors/remodelit.webp";
+import smileySheehan from "../assets/images/sponsors/smiley-sheehan-group.webp";
+import somedaySoon from "../assets/images/sponsors/someday-soon-chiropractic.webp";
 
 const REGISTER_URL = "https://runsignup.com/Race/TX/Dallas/RunforLily";
 
@@ -19,11 +29,55 @@ const details = [
   },
 ];
 
-// Sponsor logos. To add a sponsor, drop their logo on the CDN
-// (assets.upheldministries.org) and add an entry here:
-//   { name: "Acme Co", logo: "https://assets.upheldministries.org/images/sponsors/acme.png", url: "https://acme.com" }
-type Sponsor = { name: string; logo: string; url?: string };
-const sponsors: Array<Sponsor> = [];
+const photoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/images/race-for-lily-grace/*.webp", {
+  eager: true,
+});
+const photoAlts = [
+  "Runners wearing finisher medals after the race",
+  "Volunteers gathered under the Race for Lily Grace arch",
+  "A young runner crossing the finish line",
+  "Runners lined up at the start under the race arch",
+  "A runner smiling with his finisher medal",
+  "Two girls showing off their finisher medals",
+  "A runner crossing the finish line",
+  "A runner approaching the finish arch",
+  "Two runners on the course",
+  "Runners gathered together before the race",
+  "Runners at the starting line",
+  "Runners high-fiving on the course",
+  "A runner stretching before the race",
+  "A smiling boy getting his race bib",
+  "Cheerleaders with pom-poms cheering on runners",
+  "A group of kids with their race bibs",
+];
+const photos = Object.keys(photoFiles)
+  .sort()
+  .map((path, i) => ({ src: photoFiles[path].default, alt: photoAlts[i] ?? "Race for Lily Grace" }));
+
+type Sponsor = { name: string; logo: ImageMetadata; url?: string };
+const sponsorTiers: Array<{ tier: string; sponsors: Array<Sponsor> }> = [
+  { tier: "Title Sponsor", sponsors: [{ name: "Kyle Sharpe Family", logo: kyleSharpeFamily }] },
+  {
+    tier: "Gold Sponsors",
+    sponsors: [
+      { name: "Chatham Construction", logo: chathamConstruction, url: "https://www.chathamconstruction.co" },
+      { name: "Midway Electrical Group", logo: midwayElectrical, url: "https://midwayelectricalgroup.com" },
+    ],
+  },
+  {
+    tier: "Silver Sponsors",
+    sponsors: [
+      { name: "Files & Associates", logo: filesAndAssociates, url: "https://www.filesassoc.com" },
+      { name: "Someday Soon Chiropractic", logo: somedaySoon, url: "https://www.somedaysoonchiropractic.com" },
+      {
+        name: "The Smiley Sheehan Group",
+        logo: smileySheehan,
+        url: "https://www.compass.com/agents/smiley-sheehan-group/",
+      },
+    ],
+  },
+  { tier: "Bronze Sponsor", sponsors: [{ name: "Remodelit", logo: remodelit, url: "https://remodelit.com" }] },
+];
 ---
 
 <Layout headerBgColor="bg-brand-dark-grey">
@@ -66,6 +120,8 @@ const sponsors: Array<Sponsor> = [];
             <p>Can't make it in person? Register virtually and race with us from anywhere.</p>
           </div>
         </div>
+
+        <Slideshow images={photos} label="Photos from the Race for Lily Grace" />
 
         <!-- RACE DETAILS -->
         <div class="space-y-10">
@@ -124,24 +180,37 @@ const sponsors: Array<Sponsor> = [];
           </div>
 
           {
-            sponsors.length > 0 ? (
-              <ul class="grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-4">
-                {sponsors.map((sponsor) => (
-                  <li class="flex items-center justify-center">
-                    {sponsor.url ? (
-                      <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                        <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="max-h-24 w-full object-contain" />
-                        <span class="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    ) : (
-                      <img src={sponsor.logo} alt={sponsor.name} class="max-h-24 w-full object-contain" />
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p class="text-lg italic">Sponsors for the 2026 race will be announced soon.</p>
-            )
+            sponsorTiers.map(({ tier, sponsors }, i) => (
+              <div class="space-y-8 pt-8 md:pt-12">
+                <h3 class="before:bg-brand-orange after:bg-brand-orange flex items-center gap-x-4 font-serif text-lg tracking-[0.2em] uppercase before:h-px before:flex-1 after:h-px after:flex-1">
+                  {tier}
+                </h3>
+                <ul class="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+                  {sponsors.map((sponsor) => {
+                    const logo = (
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        height={i === 0 ? 320 : 192}
+                        class:list={["w-auto object-contain", i === 0 ? "h-40 md:h-52" : "h-20 max-w-60 md:h-24"]}
+                      />
+                    );
+                    return (
+                      <li>
+                        {sponsor.url ? (
+                          <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="block">
+                            {logo}
+                            <span class="sr-only"> (opens in a new tab)</span>
+                          </a>
+                        ) : (
+                          logo
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))
           }
 
           <div class="bg-brand-blurple mx-auto max-w-2xl space-y-4 rounded-md px-8 py-10">
